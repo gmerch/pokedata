@@ -48,9 +48,14 @@ def getAbility(soup):
     return ability
     
 def getItem(soup):
+    
     progItem = re.compile('\@(.*) \n')
-    item = [a.strip() for a in progItem.findall(soup.text)][0]
-    return item
+    item = progItem.findall(soup.text)
+    if item:
+        item = [a.strip() for a in progItem.findall(soup.text)][0]
+        return item
+    else:
+        return None
 
 def getEVs(soup):
     evs_dict = {'HP':0,'Atk':0, 'Def':0,'SpA':0, 'SpD':0,'Spe':0}
