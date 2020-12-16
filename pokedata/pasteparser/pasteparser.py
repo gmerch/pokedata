@@ -130,9 +130,9 @@ class PasteParser:
         paths = []
         for pokemon in self.pokemon:
             if pokemon.shiny:
-                path = f'{SPRITE_PATH}shiny/{pokemon.pokemon}.png'
+                path = f'{SPRITE_PATH}shiny/{pokemon.pokemon.lower()}.png'
             else:
-                path = f'{SPRITE_PATH}regular/{pokemon.pokemon}.png'
+                path = f'{SPRITE_PATH}regular/{pokemon.pokemon.lower()}.png'
             paths.append(path)
         return paths
 
